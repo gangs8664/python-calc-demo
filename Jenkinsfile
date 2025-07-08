@@ -27,6 +27,8 @@ pipeline {
                       -Dsonar.projectName='Python Calculator' \\ # SonarQube에 표시될 프로젝트 이름
                       -Dsonar.sources=. \\ # 분석할 소스 코드 경로 (현재 디렉토리)
                       -Dsonar.language=py # 분석 언어 지정
+		      -Dsonar.sourceEncoding=UTF-8 \\ # 소스 코드 인코딩 - 특별한 경우 아니면 그대로 두세요
+                      -Dsonar.python.version=3.9 # **여기를 수정하세요: 실제 사용하는 파이썬 버전에 맞게 (예: 3.8, 3.10, 3.11 등)**
                     """
                 }
             }
