@@ -28,17 +28,7 @@ pipeline {
                 withSonarQubeEnv('My SonarQube') {
                     // SonarQube Scanner 실행 (파이썬 프로젝트용)
                     // 'Default SonarScanner'는 젠킨스 '글로벌 도구 설정'에서 지정한 스캐너의 'Name'
-			 sh """
-			. venv/bin/activate && 
-			${tool 'Default SonarScanner'}/bin/sonar-scanner 
-				-Dsonar.projectKey=my-python-calculator 
-				-Dsonar.projectName='Python Calculator' 
-				-Dsonar.sources=. 
-				-Dsonar.language=py 
-				-Dsonar.sourceEncoding=UTF-8 
-				-Dsonar.python.version=3.9
-				-Dsonar.exclusion=venv/**
-			"""
+			 sh '. venv/bin/activate && ${tool \'Default SonarScanner\'}/bin/sonar-scanner -Dsonar.projectKey=my-python-calculator -Dsonar.projectName=\'Python Calculator\' -Dsonar.sources=. -Dsonar.language=py -Dsonar.sourceEncoding=UTF-8 -Dsonar.python.version=3.9 -Dsonar.exclusion=venv/**'
                 }
             }
         }
